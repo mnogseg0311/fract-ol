@@ -6,7 +6,7 @@
 /*   By: mnoguera <mnoguera@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:50:46 by mnoguera          #+#    #+#             */
-/*   Updated: 2023/08/08 14:44:02 by mnoguera         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:03:46 by mnoguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ t_complex	get_complex(int x, int y, t_img *img)
     long double  b;
 
     a = img->x_inf + x * (img->x_sup - img->x_inf) / WIN_W;
-    b = img->y_sup - y * (img->y_sup - img->y_inf) / WIN_H;
+    b = img->y_inf + y * (img->y_sup - img->y_inf) / WIN_H;
     return ((t_complex) {a, b});
 }

@@ -6,7 +6,7 @@
 /*   By: mnoguera <mnoguera@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:49:21 by mnoguera          #+#    #+#             */
-/*   Updated: 2023/08/08 14:45:17 by mnoguera         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:40:53 by mnoguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ void	change_palette(t_structures *struc)
 	struc->palette.c3 = struc->palette.c4;
 	struc->palette.c4 = struc->palette.c5;
 	struc->palette.c5 = struc->palette.c6;
-	struc->palette.c6 = struc->palette.c7;
-	struc->palette.c7 = aux;
+	struc->palette.c6 = aux;
 	paint_fractal(struc);
 }
 

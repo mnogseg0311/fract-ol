@@ -6,7 +6,7 @@
 /*   By: mnoguera <mnoguera@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:56:45 by mnoguera          #+#    #+#             */
-/*   Updated: 2023/08/08 14:46:57 by mnoguera         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:44:51 by mnoguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ int main(int argc, char **argv)
 {
 	t_structures	struc;
 
-	if (argc != 2)
+	if (argc != 2 && argc != 3)
 		return (general_guide());
-	if (!create_mlx(&struc, argv[1]))
+	if (argc == 2 && !create_mlx(&struc, argv))
+		return (0);
+	if (argc == 3 && !create_mlx(&struc, argv))
 		return (0);
 	if (struc.fractal == -1)
 		return (fractals_guide());

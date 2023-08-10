@@ -6,24 +6,28 @@
 /*   By: mnoguera <mnoguera@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:51:20 by mnoguera          #+#    #+#             */
-/*   Updated: 2023/08/08 15:38:51 by mnoguera         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:04:10 by mnoguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /*calcula el nombre d'iteracions pel mandelbrot i julia*/
-int mandel_julia(t_complex z, t_complex c, int max_iter)
+int fractal(t_complex z, t_complex c, t_structures *struc)
 {
 	int			iter;
 	t_complex	z_aux;
 
 	iter = 0;
-	while (iter <= max_iter && module_squared(z) <= 4)
+	while (iter <= struc->img.iter && module_squared(z) <= 4)
 	{
 		z_aux = z;
 		z.a = z_aux.a * z_aux.a - z_aux.b * z_aux.b + c.a;
 		z.b = 2 * z_aux.a * z_aux.b + c.b;
+		if (struc->fractal == 2 && z.a < 0)
+			z.a = - z.a;
+		if (struc->fractal == 2 && z.b < 0)
+			z.b = - z.b;
 		iter++;
 	}
 	return (iter);

@@ -6,7 +6,7 @@
 /*   By: mnoguera <mnoguera@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 14:37:01 by mnoguera          #+#    #+#             */
-/*   Updated: 2023/08/08 14:46:11 by mnoguera         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:39:16 by mnoguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_color_range
 	t_color	c4;
 	t_color	c5;
 	t_color	c6;
-	t_color	c7;
 }		t_color_range;
 
 typedef struct s_structures
@@ -79,10 +78,13 @@ typedef struct s_structures
 	t_color_range	palette;
 	char			*type;
 	int				fractal;
+	int				m;
+	int				func;
+	int				m_2;
 }		t_structures;
 
 /*new_structures.c*/
-int 				create_mlx(t_structures *struc, char *type);
+int 				create_mlx(t_structures *struc, char **argv);
 t_img				new_img(t_win win);
 t_win				new_win(char *str);
 
@@ -92,7 +94,7 @@ int					pixels_color(int x, int y, t_structures *struc);
 void				color_pixel_img(t_img img, int x, int y, int color);
 
 /*fractal.c*/
-int					mandel_julia(t_complex z, t_complex c, int max_iter);
+int					fractal(t_complex z, t_complex c, t_structures *struc);
 void    			paint_fractal(t_structures *struc);
 void				paint_mandel(t_structures *struc);
 
